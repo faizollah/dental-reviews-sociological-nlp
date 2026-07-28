@@ -1,0 +1,913 @@
+{
+  "framework": "Parsons' sick role (obligation to seek and cooperate with technically competent help)",
+  "polarity": {
+    "upholding": [
+      "TRUST",
+      "FOLLOW_ADVICE",
+      "ACKNOWLEDGE_EXPERTISE",
+      "POSITIVE_OUTCOME"
+    ],
+    "challenging": [
+      "SEEK_ALTERNATIVE",
+      "CHALLENGE_EXPERTISE",
+      "POOR_COMMUNICATION",
+      "LACK_TRUST",
+      "NON_COMPLIANCE"
+    ]
+  },
+  "helper_vocabularies": {
+    "CLINIC_TERMS": [
+      "dentist",
+      "doctor",
+      "hygienist",
+      "practice",
+      "surgery",
+      "clinic",
+      "team",
+      "staff"
+    ],
+    "MEDS": [
+      "medication",
+      "antibiotics",
+      "painkillers",
+      "ibuprofen",
+      "paracetamol",
+      "amoxicillin"
+    ],
+    "ADVICE_TERMS": [
+      "advice",
+      "instructions",
+      "recommendation",
+      "guidance",
+      "plan",
+      "aftercare",
+      "regimen"
+    ]
+  },
+  "categories": {
+    "TRUST": {
+      "polarity": "upholding",
+      "phrases": [
+        "put my mind at ease",
+        "felt at ease",
+        "in good hands",
+        "felt reassured",
+        "complete trust",
+        "full confidence",
+        "i trusted him completely",
+        "i trusted her completely",
+        "calm and reassuring",
+        "gentle and patient"
+      ],
+      "token_patterns": []
+    },
+    "FOLLOW_ADVICE": {
+      "polarity": "upholding",
+      "phrases": [
+        "to the letter",
+        "exactly as instructed",
+        "as advised",
+        "as told",
+        "stuck to the plan",
+        "booked the follow-up as told",
+        "used the salt water rinses as advised",
+        "kept the tray in overnight as instructed"
+      ],
+      "token_patterns": []
+    },
+    "ACKNOWLEDGE_EXPERTISE": {
+      "polarity": "upholding",
+      "phrases": [
+        "highly skilled",
+        "very professional",
+        "true professional",
+        "attention to detail",
+        "explained everything clearly",
+        "explained it clearly",
+        "explained in a way i could understand",
+        "very knowledgeable",
+        "thorough and professional",
+        "good bedside manner"
+      ],
+      "token_patterns": [
+        [
+          {
+            "LOWER": {
+              "IN": [
+                "excellent",
+                "great",
+                "amazing",
+                "wonderful",
+                "fantastic"
+              ]
+            }
+          },
+          {
+            "LOWER": {
+              "IN": [
+                "dentist",
+                "doctor",
+                "professional",
+                "practitioner",
+                "care"
+              ]
+            }
+          }
+        ],
+        [
+          {
+            "LEMMA": "know"
+          },
+          {
+            "LOWER": {
+              "IN": [
+                "what",
+                "exactly"
+              ]
+            }
+          },
+          {
+            "POS": "PRON"
+          },
+          {
+            "LEMMA": "do"
+          }
+        ],
+        [
+          {
+            "LOWER": "true"
+          },
+          {
+            "LOWER": {
+              "IN": [
+                "professional",
+                "expert"
+              ]
+            }
+          }
+        ],
+        [
+          {
+            "LOWER": "highly"
+          },
+          {
+            "LOWER": {
+              "IN": [
+                "skilled",
+                "competent",
+                "qualified",
+                "experienced"
+              ]
+            }
+          }
+        ],
+        [
+          {
+            "LEMMA": "explain"
+          },
+          {
+            "LOWER": {
+              "IN": [
+                "everything",
+                "clearly",
+                "well",
+                "thoroughly"
+              ]
+            }
+          }
+        ],
+        [
+          {
+            "LOWER": "very"
+          },
+          {
+            "LOWER": {
+              "IN": [
+                "professional",
+                "competent",
+                "knowledgeable",
+                "thorough"
+              ]
+            }
+          }
+        ],
+        [
+          {
+            "LOWER": "attention"
+          },
+          {
+            "LOWER": "to"
+          },
+          {
+            "LOWER": "detail"
+          }
+        ]
+      ]
+    },
+    "POSITIVE_OUTCOME": {
+      "polarity": "upholding",
+      "phrases": [
+        "healing was perfect",
+        "no complications at all",
+        "worked exactly as expected",
+        "recovery was smooth",
+        "no issues whatsoever",
+        "pain well managed"
+      ],
+      "token_patterns": [
+        [
+          {
+            "LOWER": {
+              "IN": [
+                "healing",
+                "recovery"
+              ]
+            }
+          },
+          {
+            "LEMMA": "be"
+          },
+          {
+            "LOWER": {
+              "IN": [
+                "perfect",
+                "great",
+                "excellent",
+                "smooth",
+                "quick"
+              ]
+            }
+          }
+        ],
+        [
+          {
+            "LOWER": "worked"
+          },
+          {
+            "LOWER": {
+              "IN": [
+                "perfectly",
+                "exactly",
+                "just"
+              ]
+            }
+          },
+          {
+            "LOWER": "as"
+          },
+          {
+            "LEMMA": {
+              "IN": [
+                "say",
+                "promise",
+                "expect"
+              ]
+            }
+          }
+        ],
+        [
+          {
+            "LOWER": "glad"
+          },
+          {
+            "LOWER": "i"
+          },
+          {
+            "LEMMA": {
+              "IN": [
+                "listen",
+                "follow",
+                "trust"
+              ]
+            }
+          }
+        ],
+        [
+          {
+            "LOWER": "no"
+          },
+          {
+            "LOWER": {
+              "IN": [
+                "problems",
+                "issues",
+                "complications"
+              ]
+            }
+          },
+          {
+            "LOWER": "at",
+            "OP": "?"
+          },
+          {
+            "LOWER": "all",
+            "OP": "?"
+          }
+        ]
+      ]
+    },
+    "SEEK_ALTERNATIVE": {
+      "polarity": "challenging",
+      "phrases": [
+        "second opinion",
+        "going elsewhere",
+        "won't be back",
+        "would not recommend",
+        "not going back",
+        "won’t be returning",
+        "transferring my records",
+        "registering elsewhere"
+      ],
+      "token_patterns": [
+        [
+          {
+            "LOWER": {
+              "IN": [
+                "second",
+                "another",
+                "different"
+              ]
+            }
+          },
+          {
+            "LOWER": "opinion"
+          }
+        ],
+        [
+          {
+            "LEMMA": "go"
+          },
+          {
+            "LOWER": "to"
+          },
+          {
+            "LOWER": {
+              "IN": [
+                "another",
+                "different",
+                "new"
+              ]
+            }
+          },
+          {
+            "LOWER": {
+              "IN": [
+                "dentist",
+                "practice",
+                "clinic"
+              ]
+            }
+          }
+        ],
+        [
+          {
+            "LEMMA": "change"
+          },
+          {
+            "LOWER": {
+              "IN": [
+                "dentist",
+                "practice",
+                "doctor"
+              ]
+            }
+          }
+        ],
+        [
+          {
+            "LEMMA": "switch"
+          },
+          {
+            "LOWER": "to"
+          }
+        ],
+        [
+          {
+            "LOWER": "not"
+          },
+          {
+            "LEMMA": "go"
+          },
+          {
+            "LOWER": "back"
+          }
+        ],
+        [
+          {
+            "LOWER": {
+              "IN": [
+                "never",
+                "wo",
+                "would"
+              ]
+            }
+          },
+          {
+            "LOWER": {
+              "IN": [
+                "n't"
+              ]
+            },
+            "OP": "?"
+          },
+          {
+            "LEMMA": {
+              "IN": [
+                "return",
+                "go"
+              ]
+            }
+          },
+          {
+            "LOWER": "back",
+            "OP": "?"
+          }
+        ]
+      ]
+    },
+    "CHALLENGE_EXPERTISE": {
+      "polarity": "challenging",
+      "phrases": [
+        "i read online",
+        "according to google",
+        "felt like they were upselling",
+        "push for the most expensive",
+        "money grabbing",
+        "rip-off",
+        "ripoff",
+        "scam",
+        "sales pitch",
+        "previous dentist never mentioned",
+        "over treatment",
+        "overtreatment"
+      ],
+      "token_patterns": [
+        [
+          {
+            "LOWER": "i"
+          },
+          {
+            "LEMMA": {
+              "IN": [
+                "read",
+                "see",
+                "find",
+                "learn"
+              ]
+            }
+          },
+          {
+            "LOWER": {
+              "IN": [
+                "online",
+                "that",
+                "somewhere"
+              ]
+            }
+          }
+        ],
+        [
+          {
+            "LOWER": "according"
+          },
+          {
+            "LOWER": "to"
+          },
+          {
+            "LOWER": {
+              "IN": [
+                "google",
+                "internet",
+                "research",
+                "articles",
+                "youtube"
+              ]
+            }
+          }
+        ],
+        [
+          {
+            "LOWER": {
+              "IN": [
+                "disagree",
+                "disagreed"
+              ]
+            }
+          },
+          {
+            "LOWER": "with"
+          }
+        ],
+        [
+          {
+            "LOWER": "i"
+          },
+          {
+            "LOWER": {
+              "IN": [
+                "think",
+                "believe",
+                "feel"
+              ]
+            }
+          },
+          {
+            "LOWER": {
+              "IN": [
+                "they",
+                "he",
+                "she"
+              ]
+            }
+          },
+          {
+            "LEMMA": "be",
+            "OP": "?"
+          },
+          {
+            "LOWER": "wrong"
+          }
+        ],
+        [
+          {
+            "LOWER": "not"
+          },
+          {
+            "LOWER": {
+              "IN": [
+                "sure",
+                "convinced"
+              ]
+            }
+          },
+          {
+            "LOWER": {
+              "IN": [
+                "about",
+                "if"
+              ]
+            }
+          }
+        ],
+        [
+          {
+            "LEMMA": "question"
+          },
+          {
+            "POS": {
+              "IN": [
+                "PRON",
+                "DET"
+              ]
+            },
+            "OP": "?"
+          },
+          {
+            "LOWER": {
+              "IN": [
+                "diagnosis",
+                "recommendation",
+                "advice",
+                "treatment"
+              ]
+            }
+          }
+        ],
+        [
+          {
+            "LOWER": {
+              "IN": [
+                "unnecessary",
+                "excessive",
+                "overpriced"
+              ]
+            }
+          },
+          {
+            "LOWER": {
+              "IN": [
+                "treatment",
+                "procedure",
+                "work"
+              ]
+            }
+          }
+        ],
+        [
+          {
+            "LOWER": {
+              "IN": [
+                "scam",
+                "rip-off",
+                "ripoff",
+                "con"
+              ]
+            }
+          }
+        ]
+      ]
+    },
+    "POOR_COMMUNICATION": {
+      "polarity": "challenging",
+      "phrases": [
+        "talked down to me",
+        "left with more questions",
+        "no time for questions",
+        "felt rushed",
+        "patronising",
+        "patronizing",
+        "dismissive",
+        "arrogant",
+        "no informed consent",
+        "didn’t explain risks",
+        "didn't explain risks",
+        "rushed consent"
+      ],
+      "token_patterns": [
+        [
+          {
+            "LEMMA": "do"
+          },
+          {
+            "LOWER": "n't",
+            "OP": "?"
+          },
+          {
+            "LOWER": "not",
+            "OP": "?"
+          },
+          {
+            "LEMMA": "listen"
+          }
+        ],
+        [
+          {
+            "LEMMA": "rush"
+          },
+          {
+            "LOWER": {
+              "IN": [
+                "through",
+                "me",
+                "the"
+              ]
+            },
+            "OP": "?"
+          },
+          {
+            "LOWER": {
+              "IN": [
+                "explanation",
+                "appointment",
+                "consultation"
+              ]
+            },
+            "OP": "?"
+          }
+        ],
+        [
+          {
+            "LEMMA": "dismiss"
+          },
+          {
+            "LOWER": "my"
+          },
+          {
+            "LOWER": {
+              "IN": [
+                "concerns",
+                "worries",
+                "questions"
+              ]
+            }
+          }
+        ],
+        [
+          {
+            "LOWER": {
+              "IN": [
+                "ignored",
+                "dismissive",
+                "rude",
+                "arrogant",
+                "condescending"
+              ]
+            }
+          }
+        ],
+        [
+          {
+            "LOWER": "no"
+          },
+          {
+            "LOWER": "time"
+          },
+          {
+            "LOWER": {
+              "IN": [
+                "for",
+                "to"
+              ]
+            }
+          },
+          {
+            "LOWER": {
+              "IN": [
+                "questions",
+                "explain",
+                "discuss"
+              ]
+            }
+          }
+        ],
+        [
+          {
+            "LOWER": "felt"
+          },
+          {
+            "LOWER": {
+              "IN": [
+                "rushed",
+                "pressured",
+                "ignored",
+                "unheard"
+              ]
+            }
+          }
+        ]
+      ]
+    },
+    "LACK_TRUST": {
+      "polarity": "challenging",
+      "phrases": [
+        "no confidence in",
+        "gut feeling",
+        "alarm bells",
+        "felt uneasy",
+        "felt unsafe",
+        "felt uncomfortable",
+        "dodgy",
+        "sketchy",
+        "shady",
+        "suspicious"
+      ],
+      "token_patterns": [
+        [
+          {
+            "LEMMA": {
+              "IN": [
+                "do",
+                "have"
+              ]
+            }
+          },
+          {
+            "LOWER": "n't",
+            "OP": "?"
+          },
+          {
+            "LOWER": "not",
+            "OP": "?"
+          },
+          {
+            "LEMMA": {
+              "IN": [
+                "trust",
+                "believe"
+              ]
+            }
+          }
+        ],
+        [
+          {
+            "LOWER": "no"
+          },
+          {
+            "LOWER": {
+              "IN": [
+                "confidence",
+                "faith",
+                "trust"
+              ]
+            }
+          },
+          {
+            "LOWER": "in"
+          }
+        ],
+        [
+          {
+            "LEMMA": "lose"
+          },
+          {
+            "LOWER": {
+              "IN": [
+                "confidence",
+                "faith",
+                "trust"
+              ]
+            }
+          }
+        ],
+        [
+          {
+            "LOWER": "not"
+          },
+          {
+            "LEMMA": "feel"
+          },
+          {
+            "LOWER": {
+              "IN": [
+                "confident",
+                "comfortable",
+                "safe"
+              ]
+            }
+          }
+        ],
+        [
+          {
+            "LOWER": {
+              "IN": [
+                "uncomfortable",
+                "uneasy",
+                "worried",
+                "concerned"
+              ]
+            }
+          },
+          {
+            "LOWER": {
+              "IN": [
+                "with",
+                "about"
+              ]
+            }
+          }
+        ],
+        [
+          {
+            "LOWER": {
+              "IN": [
+                "incompetent",
+                "inexperienced",
+                "unprofessional",
+                "careless",
+                "dodgy",
+                "sketchy",
+                "shady",
+                "suspicious"
+              ]
+            }
+          }
+        ]
+      ]
+    },
+    "NON_COMPLIANCE": {
+      "polarity": "challenging",
+      "phrases": [
+        "refused treatment",
+        "declined treatment",
+        "against their advice",
+        "against my dentist's advice",
+        "decided to wait and see",
+        "stopped taking antibiotics",
+        "didn't follow the advice",
+        "did not follow the advice",
+        "ignored aftercare",
+        "didn't wear the retainer",
+        "did not attend follow-up",
+        "missed follow up",
+        "missed follow-up"
+      ],
+      "token_patterns": []
+    }
+  },
+  "dependency_patterns": {
+    "NEGATED_TRUST_WORDS": [
+      [
+        {
+          "RIGHT_ID": "anchor",
+          "RIGHT_ATTRS": {
+            "LEMMA": {
+              "IN": [
+                "trust",
+                "confident",
+                "believe"
+              ]
+            }
+          }
+        },
+        {
+          "LEFT_ID": "anchor",
+          "REL_OP": ">",
+          "RIGHT_ID": "negation",
+          "RIGHT_ATTRS": {
+            "DEP": "neg"
+          }
+        }
+      ]
+    ]
+  }
+}
