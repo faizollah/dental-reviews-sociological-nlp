@@ -108,10 +108,7 @@ can be loaded without spaCy.
 
 ## Citation
 
-If you use these lexicons or this code, please cite the archived release (see the DOI
-badge above) and the study:
-
-> Feizollah A, Li M, Byrne M. [Title]. *Digital Health*. [Year].
+If you use these lexicons or this code, please cite the archive.
 
 Preliminary findings were presented at UK Public Health Science 2026 and published as a
 conference abstract: Li M, Feizollah A, Byrne M. Socioeconomic inequalities in
